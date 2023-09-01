@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>เครื่องคิดเลข</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    /* สไตล์ของ container */
+    .container {
+      max-width: 300px;
+      margin: 0 auto;
+      padding: 100px;
+      background-color: #42863f; /* กำหนดสีพื้นหลังเป็นสีฟ้า */
+      color: #d9ff00; /* เปลี่ยนสีข้อความเป็นขาว */
+      border: 2px solid #ff00dd;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+    }
+
+    /* สไตล์ของ input */
+    input[type="text"] {
+      width: 89%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    /* สไตล์ของ button */
+    button {
+      width: 90%;
+      padding: 10px;
+      background-color: #5eff00;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    /* สไตล์ของ animation */
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* สไตล์ของ result-container */
+    .result-container {
+      margin-top: 10px;
+      padding: 15px;
+      background-color: #30bd8e;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    /* สไตล์ของ result */
+    #result {
+      font-size: 25px;
+      color: #ffffff;
+    }
+
+    /* สไตล์ของ animate */
+    .animate {
+      animation: slideIn 0.5s; /* เพิ่มการใช้งาน animation */
+    }
+
+    /* สไตล์ของ countdown */
+    #countdown {
+      font-size: 16px;
+      color: #fff;
+      margin-top: 10px;
+    }
+
+    /* สไตล์ของ error-message */
+    #error-message {
+      font-size: 20px;
+      color: rgb(0, 255, 136);
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>เครื่องคิดเลขที่ไม่ใช้หัวสมองจารม่อนเเต่เขียนโดยจารม่อน</h1>
+    <input type="text" id="expression" placeholder="ป้อนสิ่งที่จะให้คำนวณ">
+    <button type="button" onclick="calculate()">คำนวณ-_-</button>
+    <div class="result-container">
+      <p id="result"></p>
+      <div id="countdown"></div>
+    </div>
+    <div id="error-message"></div>
+  </div>
+
+  <script>
+    var hideTimeout; // ตัวแปรเพิ่มเติมเพื่อควบคุมการหายไปของข้อความ
+    var countdownInterval; // ตัวแปรเพื่อเก็บ interval ของการนับถอยหลัง
+    var countdownValue = 8; // ค่าเริ่มต้นของการนับถอยหลัง (วินาที)
+    var lastCalculationTime = 0; // เวลาของการคำนวณล่าสุด
+
+    $(document).ready(function() {
+      $("#expression").keydown(function(event) {
+        if (event.keyCode === 13) {
+          calculate();
+        }
+      });
+    });
+
+    function calculate() {
+      var currentTime = Date.now();
+      // ตรวจสอบว่าคำนวณซ้อนกันหรือไม่
+      if (currentTime - lastCalculationTime < 8000) {
+        document.getElementById("error-message").textContent = "ห้ามคำนวณซ้อนกัน!";
+        return;
+      }
+
+      lastCalculationTime = currentTime; // อัปเดตเวลาของการคำนวณล่าสุด
+
+      var expression = document.getElementById("expression").value;
+      try {
+        var result = eval(expression);
+        var resultElement = document.getElementById("result");
+        resultElement.textContent = "ผลลัพธ์: " + result;
+
+        // เพิ่ม class "animate" เพื่อเริ่มการแอนิเมชัน
+        resultElement.classList.add("animate");
+
+        // ใช้ setTimeout เพื่อลบ class "animate" ออก เพื่อเริ่มแอนิเมชันใหม่
+        setTimeout(function () {
+          resultElement.classList.remove("animate");
+        }, 500);
+
+        // ลบข้อความในช่องป้อนหลังจากผ่านไป 8 วินาที
+        document.getElementById("expression").value = "";
+
+        // เริ่มการนับถอยหลังและแสดงผลบนหน้าเว็บ
+        countdownValue = 8;
+        updateCountdown(); // อัปเดตการนับถอยหลัง
+        countdownInterval = setInterval(function () {
+          countdownValue--;
+          updateCountdown();
+          if (countdownValue === 0) {
+            clearInterval(countdownInterval);
+            hideResult();
+          }
+        }, 1000); // นับถอยหลังทุกๆ 1 วินาที
+
+        // ลบข้อความข้อผิดพลาด
+        document.getElementById("error-message").textContent = "";
+      } catch (error) {
+        document.getElementById("result").textContent = "เกิดข้อผิดพลาด: " + error.message;
+      }
+    }
+
+    function updateCountdown() {
+      document.getElementById("countdown").textContent = "ผลลัพธ์จะหายไปใน " + countdownValue + " วินาที";
+    }
+
+    function hideResult() {
+      var resultElement = document.getElementById("result");
+      resultElement.textContent = "";
+      var countdownElement = document.getElementById("countdown");
+      countdownElement.textContent = "";
+    }
+  </script>
+</body>
+</html>
