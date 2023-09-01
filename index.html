@@ -127,7 +127,7 @@
     function calculate() {
       var currentTime = Date.now();
       // ตรวจสอบว่าคำนวณซ้อนกันหรือไม่
-      if (currentTime - lastCalculationTime < 8000) {
+      if (currentTime - lastCalculationTime < 5000) {
         document.getElementById("error-message").textContent = "ห้ามคำนวณซ้อนกัน!";
         return;
       }
@@ -152,7 +152,7 @@
         document.getElementById("expression").value = "";
 
         // เริ่มการนับถอยหลังและแสดงผลบนหน้าเว็บ
-        countdownValue = 8;
+        countdownValue = 5;
         updateCountdown(); // อัปเดตการนับถอยหลัง
         countdownInterval = setInterval(function () {
           countdownValue--;
