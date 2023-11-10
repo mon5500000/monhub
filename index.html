@@ -87,8 +87,27 @@
     /* สไตล์ของ Facebook link */
     .facebook-link {
       font-size: 16px;
-      color: #ffffff;
+      color: #0026ff;
       margin-top: 10px;
+    }
+
+    /* สไตล์ของ other-links container */
+    .other-links {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    /* สไตล์ของ other-links button */
+    .other-links button {
+      width: 45%;
+      padding: 10px;
+      background-color: #ff00dd;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -105,9 +124,15 @@
 
     <!-- เพิ่มลิงก์ไปยัง Facebook -->
     <div class="facebook-link">
-      <a href="https://www.facebook.com/thanapat.inti" target="_blank">
-        ติดต่อเราทาง Facebook
+      <a href="https://github.com/mon5500000/monhub" target="_blank">
+        github เอาไว้ศึกษาเว็พ
       </a>
+    </div>
+
+    <!-- เพิ่มช่องทางอื่นๆ -->
+    <div class="other-links">
+      <button onclick="animateAndRedirect('https://www.facebook.com/profile.php?id=100071744102694')">ติดต่อเราทาง Facebook</button>
+      <button onclick="animateAndRedirect('https://discord.gg/4wAzWdaEUT')">discord</button>
     </div>
   </div>
 
@@ -180,6 +205,20 @@
       resultElement.textContent = "";
       var countdownElement = document.getElementById("countdown");
       countdownElement.textContent = "";
+    }
+
+    function animateAndRedirect(url) {
+      // เพิ่ม class "animate" เพื่อเริ่มการแอนิเมชัน
+      $(".other-links").addClass("animate");
+
+      // ใช้ setTimeout เพื่อลบ class "animate" ออก เพื่อเริ่มแอนิเมชันใหม่
+      setTimeout(function () {
+        $(".other-links").removeClass("animate");
+        // แสดงข้อความ "รอเป๊ป"
+        document.getElementById("result").textContent = "รอเป๊ป...";
+        // นำทางไปยัง URL ที่กำหนด
+        window.location.href = url;
+      }, 500);
     }
   </script>
 </body>
