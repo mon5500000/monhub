@@ -7,17 +7,46 @@
   <style>
     /* สไตล์ของ container */
     .container {
-      max-width: 4000px;
+      max-width: 400px;
       margin: 0 auto;
-      padding: 200px;
-      background-color: #42863f; /* กำหนดสีพื้นหลังเป็นสีฟ้า */
-      color: #d9ff00; /* เปลี่ยนสีข้อความเป็นขาว */
-      border: 2px solid #ff00dd;
+      padding: 50px;
+      background-color: #add8e6; /* สีฟ้าอ่อน */
+      color: #000000; /* สีข้อความเป็นดำ */
+      border: 2px solid #ff69b4; /* สีชมพู */
       border-radius: 10px;
-      box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
-      height: 100%; /* ทำให้เต็มจอ */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      height: auto;
     }
-    
+    body {
+      background-image: url('https://img5.pic.in.th/file/secure-sv1/pngegg405fca0fca57b4b3.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    /* สไตล์ของเกี่ยวกับเรา */
+.about-container {
+  background-color: #ffffff; /* สีขาว */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 106, 0.795);
+  transition: transform 0.8s; /* อนิเมชั่นเมื่อเอาเมาส์เข้าใกล้ */
+}
+
+.about-header {
+  font-size: 24px;
+  color: #333333; /* สีเทาเข้ม */
+}
+
+.about-text {
+  font-size: 16px;
+  color: #555555; /* สีเทาอ่อน */
+}
+
+/* อนิเมชั่นขยับเมื่อเอาเมาส์เข้าใกล้ */
+.about-container:hover {
+  transform: scale(1.01); /* เพิ่มขนาดเมื่อเอาเมาส์เข้าใกล้ */
+}
+
 
     /* สไตล์ของ input */
     input[type="text"] {
@@ -32,23 +61,17 @@
     button {
       width: 90%;
       padding: 10px;
-      background-color: #5eff00;
-      color: #fff;
+      background-color: #ffa500; /* สีส้ม */
+      color: #ffffff; /* สีขาว */
       border: none;
       border-radius: 3px;
       cursor: pointer;
+      transition: background-color 0.3s, box-shadow 0.3s;
     }
 
-    /* สไตล์ของ animation */
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    button:hover {
+      background-color: #ea00ff; /* สีส้มเข้มเมื่อเลื่อนเมาส์ผ่าน */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
 
     /* สไตล์ของ result-container */
@@ -64,11 +87,6 @@
     #result {
       font-size: 25px;
       color: #ffffff;
-    }
-
-    /* สไตล์ของ animate */
-    .animate {
-      animation: slideIn 0.5s; /* เพิ่มการใช้งาน animation */
     }
 
     /* สไตล์ของ countdown */
@@ -91,6 +109,24 @@
       color: #0026ff;
       margin-top: 10px;
     }
+/* สไตล์เมื่อเอาเมาส์เข้าใกล้ */
+.animate-scale-up {
+  transform: scale(1.03); /* เพิ่มขนาดเมื่อเอาเมาส์เข้าใกล้ */
+  transition: transform 0.3s;
+}
+
+/* สไตล์ของข้อความเกี่ยวกับเรา */
+.about-text {
+  font-size: 16px;
+  color: #c7c7c7; /* สีเทาอ่อน */
+  transition: color 2.2s; /* อนิเมชั่นเปลี่ยนสีเมื่อเอาเมาส์เข้าใกล้ */
+}
+
+/* สไตล์ของข้อความเมื่อเอาเมาส์เข้าใกล้ */
+.about-container:hover .about-text {
+  color: #f700ff; /* เปลี่ยนสีข้อความเป็นสีแดงเมื่อเอาเมาส์เข้าใกล้ */
+  transition: color 0.7s;
+}
 
     /* สไตล์ของ other-links container */
     .other-links {
@@ -99,11 +135,6 @@
       justify-content: space-between;
       margin-top: 20px;
     }
-    <footer>
-  <p>© 2023 <a href="https://mon5500000.github.io/monhub/" target="_blank">https://mon5500000.github.io/monhub/</a>, All right reserved.</p>
-  <p>Made with love by jarmon / Powered by ChatGPT 4</p>
-</footer>
-
 
     /* สไตล์ของ other-links button */
     .other-links button {
@@ -115,13 +146,46 @@
       border-radius: 3px;
       cursor: pointer;
     }
+
+    /* อนิเมชั่นสำหรับแสดงผลลัพธ์ */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    /* อนิเมชั่นสำหรับลิงก์ */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .animate-pulse {
+      animation: pulse 1s infinite;
+    }
+    .about-us {
+  background-color: #ffffff; /* สีขาว */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+/* อนิเมชั่นขยับ UI เมื่อเอาเมาส์เข้าใกล้ */
+.about-us:hover {
+  transform: scale(1.01); /* เพิ่มขนาดของส่วน "เกี่ยวกับเรา" เมื่อเอาเมาส์เข้าใกล้ */
+}
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>เครื่องคิดเลข by salmon.hub(สร้างตอนไม่มีไรทํา)</h1>
+    <h1>เครื่องคิดเลข 🧮 by salmon.hub (สร้างตอนไม่มีไรทํา)</h1>
     <input type="text" id="expression" placeholder="ป้อนสิ่งที่จะให้คำนวณ">
-    <button type="button" onclick="calculate()">คำนวณ-_-</button>
+    <button type="button" onclick="calculate()">คำนวณ-_- 🚀</button>
     <div class="result-container">
       <p id="result"></p>
       <div id="countdown"></div>
@@ -141,7 +205,7 @@
       <button onclick="animateAndRedirect('https://discord.gg/4wAzWdaEUT')">discord</button>
     </div>
   </div>
-
+  
   <script>
     var hideTimeout; // ตัวแปรเพิ่มเติมเพื่อควบคุมการหายไปของข้อความ
     var countdownInterval; // ตัวแปรเพื่อเก็บ interval ของการนับถอยหลัง
@@ -172,13 +236,13 @@
         var resultElement = document.getElementById("result");
         resultElement.textContent = "ผลลัพธ์: " + result;
 
-        // เพิ่ม class "animate" เพื่อเริ่มการแอนิเมชัน
-        resultElement.classList.add("animate");
+        // เพิ่มอนิเมชั่น fadeIn เมื่อแสดงผลลัพธ์
+        resultElement.classList.add("animate-fade-in");
 
-        // ใช้ setTimeout เพื่อลบ class "animate" ออก เพื่อเริ่มแอนิเมชันใหม่
+        // ลบอนิเมชั่นหลังจากเวลาผ่านไป
         setTimeout(function () {
-          resultElement.classList.remove("animate");
-        }, 500);
+          resultElement.classList.remove("animate-fade-in");
+        }, 1000);
 
         // ลบข้อความในช่องป้อนหลังจากผ่านไป 8 วินาที
         document.getElementById("expression").value = "";
@@ -214,38 +278,35 @@
     }
 
     function animateAndRedirect(url) {
-      // เพิ่ม class "animate" เพื่อเริ่มการแอนิเมชัน
-      $(".other-links").addClass("animate");
+      // เพิ่มอนิเมชั่น pulse ให้กับปุ่ม
+      $(".other-links button").addClass("animate-pulse");
 
-      // ใช้ setTimeout เพื่อลบ class "animate" ออก เพื่อเริ่มแอนิเมชันใหม่
+      // ลบอนิเมชั่นและนำทางไปยัง URL หลังจากเวลาผ่านไป
       setTimeout(function () {
-        $(".other-links").removeClass("animate");
-        // แสดงข้อความ "รอเป๊ป"
-        document.getElementById("result").textContent = "รอเป๊ป...";
-        // นำทางไปยัง URL ที่กำหนด
+        $(".other-links button").removeClass("animate-pulse");
         window.location.href = url;
-      }, 500);
+      }, 1000);
     }
   </script>
+<h1>
+  <div class="about-container">
+    <h2 class="about-header">เกี่ยวกับเรา</h2>
+    <p class="about-text">
+      ยินดีต้อนรับสู่เว็บไซต์เครื่องคิดเลขของเรา ที่นี่เราให้บริการเครื่องคิดเลขออนไลน์ที่ง่ายต่อการใช้งาน
+      และมีหลายฟังก์ชันที่คุณสามารถใช้งานได้ เราคือทีมที่มีความคิดสร้างสรรค์และมุ่งมั่นที่จะให้บริการคุณ
+      ด้วยคุณภาพที่ดีที่สุด.
+    </p>
+  </div>
+</h1>
+
+  <!-- Discord Widget -->
+  <div id="discord-widget">
+    <iframe src="https://discord.com/widget?id=898839985657098240&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
+  </div>
+</h1>
+  <footer style="background-color: #808080; color: #ffffff; text-align: center; padding: 1px;">
+    <p>©  <a href="https://mon5500000.github.io/monhub/" target="_blank" style="color: #eaffee;">ขอบคุณที่ใช้เว็พของเรา/</a>จากจารม่อน</p>
+    <p>Made with ❤️ by jarmon / Powered by ChatGPT 4 </p>
+  </footer>
 </body>
 </html>
-<HTML>
-</HEAD>
-<BODY>
-<div class="container">
-  <H1>ข้อมูลจารม่อน</H1>
-  <H2>
-  <BR> ชื่อ : ธนภัทร อินทิ
-  <BR> ชื่อเล่น : ม่อน
-  <BR> อยู่โรงเรียนอ่างทองปัทมโรจน์วิทยาคม
-  <BR> ฝึกเขียนโปรเเกรม
-  <BR> ไม่เก่งอังกฤษ🥲
-</div>
-</BODY>
-</HTML>
-<footer>
-  <p>© 2023 <a href="https://mon5500000.github.io/monhub/" target="_blank">https://mon5500000.github.io/monhub/</a>, All right reserved.</p>
-  <p>Made with love by jarmon / Powered by ChatGPT 4</p>
-</footer>
-
-    
