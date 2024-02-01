@@ -29,7 +29,7 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 255, 106, 0.795);
-  transition: transform 0.8s; /* อนิเมชั่นเมื่อเอาเมาส์เข้าใกล้ */
+  transition: transform 0.5s; /* อนิเมชั่นเมื่อเอาเมาส์เข้าใกล้ */
 }
 
 .about-header {
@@ -119,13 +119,13 @@
 .about-text {
   font-size: 16px;
   color: #c7c7c7; /* สีเทาอ่อน */
-  transition: color 2.2s; /* อนิเมชั่นเปลี่ยนสีเมื่อเอาเมาส์เข้าใกล้ */
+  transition: color 1s; /* อนิเมชั่นเปลี่ยนสีเมื่อเอาเมาส์เข้าใกล้ */
 }
 
 /* สไตล์ของข้อความเมื่อเอาเมาส์เข้าใกล้ */
 .about-container:hover .about-text {
   color: #f700ff; /* เปลี่ยนสีข้อความเป็นสีแดงเมื่อเอาเมาส์เข้าใกล้ */
-  transition: color 0.7s;
+  transition: color 0.5s;
 }
 
     /* สไตล์ของ other-links container */
@@ -179,15 +179,13 @@
 .about-us:hover {
   transform: scale(1.01); /* เพิ่มขนาดของส่วน "เกี่ยวกับเรา" เมื่อเอาเมาส์เข้าใกล้ */
 }
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5422749722231557"
-     crossorigin="anonymous"></script>
   </style>
 </head>
 <body>
   <div class="container">
     <h1>เครื่องคิดเลข 🧮 by salmon.hub (สร้างตอนไม่มีไรทํา)</h1>
     <input type="text" id="expression" placeholder="ป้อนสิ่งที่จะให้คำนวณ">
-    <button type="button" onclick="calculate()">คำนวณ-_- 🚀</button>
+    <button type="button" onclick="calculate()">คำนวณ-_-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mouse-pointer-click"><path d="m9 9 5 12 1.8-5.2L21 14Z"/><path d="M7.2 2.2 8 5.1"/><path d="m5.1 8-2.9-.8"/><path d="M14 4.1 12 6"/><path d="m6 12-1.9 2"/></svg></button>
     <div class="result-container">
       <p id="result"></p>
       <div id="countdown"></div>
@@ -196,7 +194,7 @@
 
     <!-- เพิ่มลิงก์ไปยัง Facebook -->
     <div class="facebook-link">
-      <a href="https://github.com/mon5500000/monhub" target="_blank">
+      <a href="https://raw.githubusercontent.com/mon5500000/monhub/main/index.html" target="_blank">
         github เอาไว้ศึกษาเว็บ
       </a>
     </div>
@@ -306,6 +304,36 @@
     <iframe src="https://discord.com/widget?id=898839985657098240&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
   </div>
 </h1>
+<!-- Messenger ปลั๊กอินแชท Code -->
+<div id="fb-root"></div>
+
+<!-- Your ปลั๊กอินแชท code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "100548605339841");
+  chatbox.setAttribute("attribution", "biz_inbox");
+</script>
+
+<!-- Your SDK code -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v19.0'
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/th_TH/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
   <footer style="background-color: #808080; color: #ffffff; text-align: center; padding: 1px;">
     <p>©  <a href="https://mon5500000.github.io/monhub/" target="_blank" style="color: #eaffee;">ขอบคุณที่ใช้เว็พของเรา/</a>จากจารม่อน</p>
     <p>Made with ❤️ by jarmon / Powered by ChatGPT 4 </p>
