@@ -1,104 +1,109 @@
-_G.Nexus = {
-    Main = {
-        Enabled = true,
-        Quests = {
-            ['Pull Lever'] = true,
+shared.Configs = {
+    Threading = {
+        ["Level"] = true,
+        ["Selected Weapons"] = "Equip Best", -- "Equip Best", "Sword", "Melee"
+        ["Main"] = {
+            ["Pole"] = true,
+            ["Saber"] = true,
+            ["Player Hunter Quest"] = true,
+            ["Dressrosa Quest"] = true,
+        },
+        ["Dressrosa"] = {
+            ["Water Key"] = true,
+            ["Library Key"] = true,
+            ["Dark Fragment"] = true,
+            ["Factory"] = true,
+            ["Bartilo Quest"] = true,
+            ["Flower Quest"] = true,
+            ['Race V3 Quest'] = true,
+            ["Zou Quest"] = true,
+        },
+        ["Zou"] = {
+            ["Spikey Trident"] = true,
+            ["Hallow Scythe"] = true,
+            ["Buddy Sword"] = true,
+            ["Mirror Fractal"] = true,
+            ["Pirate Raid"] = true,
+            ["Pull Leaver"] = true,
             ['Rainbow Haki'] = true,
-            ['Musketeer Hat'] = true,
-            ['Mirror Fractal'] = true
-        }
-    },
-    Sockets = {
-        Enabled = true,
-        MachineName = 'PC 1',
-        Sword = {
-            'Cursed Dual Katana',
-            'Dark Dagger',
-            'True Triple Katana',
-            'Tushita',
-            'Yama',
-            'Hallow Scythe'
-        },
-        Fruit = {
-            'Kitsune',
-            'Leopard',
-            'Dragon',
-            'Spirit',
-            'Control',
-            'Venom',
-            'Shadow',
-            'Dough',
-            'Mammoth',
-            'T-Rex'
-        }
-    },
-    Efficiency = {
-        ['FPS Booster'] = true,
-        ['Black Screen'] = false,
-    },
-    Fruits = {
-        ['Enabled'] = true,
-        ['Awakening Fruit'] = true,
-        ['List'] = {
-            'Quake-Quake',
-            'Dark-Dark',
-            'Spider-Spider',
-            'Rumble-Rumble',
-            'Magma-Magma',
-            'Buddha-Buddha',
-            'Dough-Dough',
+            ["Canvander"] = true,
+            ["Tushita"] = true,
+            ["Dark Dagger"] = true,
+            ["Yama"] = true,
+            ["Cursed Dual Katana"] = true,
+            ["Soul Guitar"] = true,
         },
     },
-    Melee = {
-        ['6 Melee'] = true,
-    },
-    Sword = {
-        ['Pole'] = true,
-        ['Saber'] = true,
-        ['Midnight Blade'] = true,
-        ['Shisui'] = true,
-        ['Saddi'] = true,
-        ['Wando'] = true,
-        ['Yama'] = true,
-        ['Tushita'] = true,
-        ['Rengoku'] = true,
-        ['Canvander'] = true,
-        ['Buddy Sword'] = true,
-        ['Spikey Trident'] = true,
-        ['Twin Hooks'] = true,
-        ['Hallow Scryte'] = true,
-        ['True Triple Katana'] = true,
-        ['Cursed Dual Katana'] = true,
-    },
-    Gun = {
-        ['Kabucha'] = true,
-        ['Serpent Bow'] = true,
-        ['Soul Guitar'] = true
-    },
-    Race = {
-        Enabled = true,
-        Races = {
-            ['Mink'] = true,
-            ['Human'] = false,
-            ['Fishman'] = true,
-            ['Skypiea'] = true,
+    LocalPlayer = {
+        ["Team"] = "Pirates", -- Marines / Pirates
+        ["Raid"] = {
+            ["Enabled"] = true, -- Enable Normal Raid
+            ["Buy Best Raid"] = false,
+            ["Awaken"] = true, -- When Enabled its only Awaken when you already got godhuman
+            ["Join Others"] = {
+                ["Enabled"] = true,
+                ["Until Fragment"] = 50000,
+            },
         },
-        Specials = {
-            ['Ghoul'] = true,
-            ['Cyborg'] = true,
-        }
-    },
-    Mastery = {
-        Sword = {
-            ['Enabled'] = true,
-            ['Manual'] = true,
-            ['Sword Name'] = {
-                'True Triple Katana',
-                'Cursed Dual Katana',
-            }
+        ["Codes"] = {
+            ["Enabled"] = true,
+            ["Redeem Level"] = 1,
         },
-        DevilFruits = true
-    }
+        ["FPS"] = {
+            ["Enabled"] = true,
+            ["Limit"] = 200,
+        },
+        ["White Screen"] = true,
+        ["Disabled Notifications"] = true,
+        ["Close UI"] = true,
+    },
+    Stats = {
+        ["Enabled"] = true,
+        ["Melee"] = 2550,
+        ["Defense"] = 2550,
+        ["Sword"] = 1275,
+        ["Blox Fruit"] = 1275,
+    },
+    DevilFruit = {
+        ["Store Fruit"] = false,
+        ["Random Fruit"] = false,
+        ["Sniper"] = {
+            ["Enabled"] = false,
+            ["Buy Fruit"] = {
+                "Dough-Dough",
+                "Light-Light",
+                "Quake-Quake",
+                "Ice-Ice",
+                "Dark-Dark",
+                "Light-Light",
+                "Sound-Sound"
+            },
+        },
+    },
+    FightingStyles = {
+        ["Required 3 Melee Before Zou"] = false,
+        ["Required V3 Evolved Before Zou"] = false,
+        ["Enabled"] = false, -- everyone want godhuman so why not
+    },
+    ["Fragments/Beli"] = {
+        ["Kabucha"] = true, -- only buy it when you have godhuman
+        ["Soul Guitar"] = true, -- only buy it when you have godhuman
+        ["Buy Legendary Sword"] = true,
+        ["Enchancement"] = {
+            ["Enabled"] = true,
+            ["Buy Color"] = {
+                "Snow White",
+                "Pure Red",
+                "Winter Sky",
+            },
+        },
+        ["Buy Bones"] = true,
+        ["Buy Common"] = true,
+        ["Buy Pole V2"] = true,
+    },
+    ["Bounty"] = {
+        ["Enabled"] = false,
+        ["Collected_Bounty"] = "Unknown"
+    },
 }
-script_key="PlhVXEZsydamuOFgmFbODbcpzSvAmyAs";
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Xenon-Trash/Nexus/main/Nexus.lua"))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Xenon-Trash/Loader/main/Loader.lua')){122832768796}
